@@ -19,10 +19,7 @@ export const list = [
     id: 5,
     order: 2,
   },
-  {
-    id: 6,
-    order: 1,
-  },{
+  ,{
     id: 6,
     order: 5,
   },

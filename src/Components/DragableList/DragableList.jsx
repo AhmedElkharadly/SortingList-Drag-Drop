@@ -32,15 +32,19 @@ function DragableItems() {
 
     //update the actual array
     setItems(sortedItems);
+
     console.log(sortedItems);
   };
 
-  //Sorting Items By Order
+  //Sorting Items By Order 
+  //Assending 
   const sortingItemsAssending = () => {
     const sortingItems = [...items];
     sortingItems.sort((a, b) => a.order - b.order);
     setItems(sortingItems);
   };
+  
+  // Dessending
   const sortingItemsDessending = () => {
     const sortingItems = [...items];
     sortingItems.sort((a, b) => b.order - a.order);
@@ -64,7 +68,7 @@ function DragableItems() {
             onDragEnd={handleSort}
             onDragOver={(e) => e.preventDefault()}
           >
-            <ListContainer order={item.order} />
+            <ListContainer order={item?.order} />
           </div>
         ))}
       </div>
