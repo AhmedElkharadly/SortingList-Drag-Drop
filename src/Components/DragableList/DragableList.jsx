@@ -7,68 +7,62 @@ import "./DragableList.css";
 function DragableItems() {
   const [items, setItems] = useState(list);
 
-  useEffect(() => {
-    console.log(items);
-  }, [items]);
-
   //save reference for dragItem and dragOverItem
-  const dragItem = useRef();
-  const dragOverItem = useRef();
+  const dragItem = useRef(null);
+  const dragOverItem = useRef(null);
 
   //const handle drag sorting
   const handleSort = () => {
     //duplicate items
-    let sortedItems = [...items];
+    let ItemsSort = [...items];
 
     //remove and save the dragged item content
-    const draggedItemContent = sortedItems.splice(dragItem.current, 1)[0];
+    const draggedItemContent = ItemsSort.splice(dragItem.current, 1)[0];
 
     //switch the position
-    sortedItems.splice(dragOverItem.current, 0, draggedItemContent);
+    ItemsSort.splice(dragOverItem.current, 0, draggedItemContent);
 
     //reset the position ref
     dragItem.current = null;
     dragOverItem.current = null;
 
     //update the actual array
-    setItems(sortedItems);
-
-    console.log(sortedItems);
+    setItems(ItemsSort);
+    console.log(ItemsSort);
   };
 
-  //Sorting Items By Order 
-  //Assending 
-  const sortingItemsAssending = () => {
-    const sortingItems = [...items];
-    sortingItems.sort((a, b) => a.order - b.order);
-    setItems(sortingItems);
+  //Sorting Items By Order
+  //Assending
+  const sortingItemsAscending = () => {
+    const ascendingItems = [...items];
+    ascendingItems.sort((a, b) => a.order - b.order);
+    setItems(ascendingItems);
   };
-  
+
   // Dessending
-  const sortingItemsDessending = () => {
-    const sortingItems = [...items];
-    sortingItems.sort((a, b) => b.order - a.order);
-    setItems(sortingItems);
+  const sortingItemsDescending = () => {
+    const descendingItems = [...items];
+    descendingItems.sort((a, b) => b.order - a.order);
+    setItems(descendingItems);
   };
 
   return (
     <div className="container">
       <Header
-        assendingbuttonClick={() => sortingItemsAssending}
-        dessendingbuttonClick={() => sortingItemsDessending}
+        ascendingbuttonClick={() => sortingItemsAscending}
+        descendingbuttonClick={() => sortingItemsDescending}
       />
       <div className="list-container">
-        {items.map((item, index) => (
+        {items?.map((item, index) => (
           <div
             key={index}
-            className="list-item"
             draggable
             onDragStart={(e) => (dragItem.current = index)}
             onDragEnter={(e) => (dragOverItem.current = index)}
             onDragEnd={handleSort}
             onDragOver={(e) => e.preventDefault()}
           >
-            <ListContainer order={item?.order} />
+            <ListContainer order={item.order} />
           </div>
         ))}
       </div>

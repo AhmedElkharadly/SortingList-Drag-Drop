@@ -25,7 +25,7 @@ export const listic = (
     </g>
   </svg>
 );
-export const dessendingIc = (
+export const descendingIc = (
   <svg width="25px" viewBox="0 0 24 24" fill="none">
     <rect width="24" height="24" fill="none" />
     <path
@@ -36,7 +36,7 @@ export const dessendingIc = (
     />
   </svg>
 );
-export const assendingIc = (
+export const  ascendingIc = (
   <svg width="25px" viewBox="0 0 24 24" fill="none">
     <rect width="24" height="24" fill="none" />
     <path

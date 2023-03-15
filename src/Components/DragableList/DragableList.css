@@ -6,13 +6,12 @@
   
 }
 
-.list-item{
-display: flex;
-
-}
 .list-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 80vw;
+
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-evenly;
+    flex-wrap: wrap; */
+    /* width: 50vw; */
+
 }
